@@ -2,11 +2,10 @@ from amazon_scraper import AmazonScraper
 import itertools
 import html, re, string, gzip, time, json
 from amazon.api import AmazonAPI
-from textteaser import TextTeaser
+#from textteaser import TextTeaser
 from pprint import pprint
 import numpy as np
 from scipy.stats import randint
-from operator import itemgetter
 import argparse
 
 from gensim import utils
@@ -185,33 +184,6 @@ def transform_input():
         test_arrays[i] = model.docvecs[i+target.shape[0]]
 
     return train_arrays, target, test_arrays, target_test
-
-def report(grid_scores, n_top=3):
-    """Report top n_top parameters settings, default n_top=3.
-
-    Args
-    ----
-    grid_scores -- output from grid or random search
-    n_top -- how many to report, of top models
-
-    Returns
-    -------
-    top_params -- [dict] top parameter settings found in
-                  search
-    """
-    top_scores = sorted(grid_scores,
-                        key=itemgetter(1),
-                        reverse=True)[:n_top]
-    for i, score in enumerate(top_scores):
-        print("Model with rank: {0}".format(i + 1))
-        print(("Mean validation score: "
-               "{0:.3f} (std: {1:.3f})").format(
-               score.mean_validation_score,
-               np.std(score.cv_validation_scores)))
-        print("Parameters: {0}".format(score.parameters))
-        print("")
-
-    return top_scores[0].parameters
 
 
 def train_ML_model(M_var):
