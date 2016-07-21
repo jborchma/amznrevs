@@ -2,7 +2,6 @@ from amazon_scraper import AmazonScraper
 import itertools
 import html, re, string, gzip, time, json
 from amazon.api import AmazonAPI
-#from textteaser import TextTeaser
 from pprint import pprint
 import numpy as np
 from scipy.stats import randint
@@ -266,15 +265,6 @@ if __name__ == '__main__':
 
     main()
 
-
-
-# with open('reviews_strict.json') as data_file:    
-#     data = json.load(data_file)
-
-# tt = TextTeaser()
-# summ = tt.summarize(title,text)
-# for sentence in summ:
-#     print(sentence)
 
 
 
