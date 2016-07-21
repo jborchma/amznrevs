@@ -24,11 +24,11 @@ seed = 7
 
 regex = re.compile('[%s]' % re.escape(string.punctuation))
 
-access_key_id = "AKIAI3URJ6RYRFAV4KNQ"
-secret_access_key = "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"
+access_key_id = ""
+secret_access_key = ""
 
 # for USA
-assoc_tag_us = "amzreviewanal-20"
+assoc_tag_us = ""
 
 amzn = AmazonScraper(access_key_id, secret_access_key, assoc_tag_us,region="US")
 
