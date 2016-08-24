@@ -2,7 +2,8 @@ AMZNREVS
 =============
 
 
-This is a small program that used Doc2Vec to vectorize user reviews for products (for example on Amazon) and subsequently use sentiment analysis in order to classify the review as either good or bad. 
+
+This is a small program that used Doc2Vec to vectorize user reviews for products (for example on Amazon) and subsequently use sentiment analysis in order to classify the review as either good or bad. One can choose between different classifiers, including a deep neural network implemented with TensorFlow.
 
 ### How to use
 
