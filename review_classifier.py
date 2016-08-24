@@ -77,7 +77,7 @@ def create_json():
 
 def review_lines(train_limit,test_limit):
     # here I create a document where each line is a review in order to train Doc2Vec
-    # in order to get this done in finite time, I had to only go through the first couple of thousand reviews. This can be increased to increase performance
+    # in order to get this done in finite time, I had to only go through the first couple of O(10^5)-O(10^6) reviews. This can be increased to increase performance
     f = open("train.txt", 'w')
     g = open("test.txt", 'w')
     h = open("train_target.txt",'w')
@@ -118,8 +118,8 @@ def create_doc2vec_model():
 
     print('Starting to train...')
     for epoch in range(10):
-        print(epoch)
-        model.train(sentences.sentences_perm())
+        print('Epoch ',epoch)
+        model.train(sentences.sentences_perm()) # this is done so that SGD (stochastic gradient descent) can meanigfully converge
 
     model.save('./amzn.d2v')
 
@@ -197,9 +197,10 @@ def main():
     else:
         remake_doc2vec = False
 
-    print(remake_doc2vec)
+    
 
     if remake_doc2vec:
+        print('Generating a new Doc2Vec model...')
         review_lines(train_limit,test_limit)
         model = create_doc2vec_model()
 
